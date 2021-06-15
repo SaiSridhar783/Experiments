@@ -1,0 +1,73 @@
+.container {
+  margin: 30vh 25vw;
+}
+
+img {
+  display: none;
+}
+
+.envelope {
+  height: 50vh;
+  width: 80%;
+  background-image: url("envelope/envelope\ backgound.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: flipping 3s linear 1s 1 forwards,
+    skew-full 1s ease-out 9s 1 forwards;
+}
+
+.envelope::after {
+  content: "";
+  background: url("envelope/outerflap.svg") no-repeat;
+  background-size: contain;
+  position: fixed;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  animation: show-flap 2s linear 1s 1 forwards,
+    flip-flap 2s ease-in 5s 1 forwards;
+}
+
+@keyframes flipping {
+  0% {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+
+  100% {
+    transform: rotateY(180deg);
+    background-image: url("envelope/envelope\ front.svg"),
+      url("envelope/envelope\ backgound.svg");
+  }
+}
+
+@keyframes flip-flap {
+  0% {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(-1) translateY(380px);
+  }
+}
+
+@keyframes show-flap {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes skew-full {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateZ(20deg);
+  }
+}
