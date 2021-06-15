@@ -11,5 +11,21 @@
     <div class="container">
       <div class="envelope"></div>
     </div>
+    <div class="button">
+      <button>Animate</button>
+      <button>Reset</button>
+    </div>
+    <script type="text/javascript">
+      let but = document.getElementsByTagName("button");
+      let env = document.querySelector(".envelope");
+
+      but[0].addEventListener("click", (event) => {
+        env.classList.add("envelope-animate");
+      });
+
+      but[1].addEventListener("click", (event) => {
+        env.classList.remove("envelope-animate");
+      });
+    </script>
   </body>
 </html>
